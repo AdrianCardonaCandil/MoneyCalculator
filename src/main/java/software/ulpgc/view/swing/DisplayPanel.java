@@ -19,16 +19,15 @@ public class DisplayPanel extends JPanel {
         return display;
     }
 
+    public JButton getButton() {
+        return button;
+    }
+
     public void addAndSetupComponents() {
         this.setSize(this.getParent().getWidth(), this.getParent().getHeight() / 2);
         this.add(button);
         this.add(display);
         this.setComponentBounds();
-        this.setButtonListener();
-    }
-
-    private void setButtonListener() {
-        this.button.addActionListener(e -> SwingMainFrame.commands.get("exchange").execute());
     }
 
     private void setComponentBounds() {

@@ -20,7 +20,7 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog {
         this.setVisible(true);
     }
 
-    public void initSetup(){
+    private void initSetup(){
         this.setLayout(null);
         this.setBackground(Color.darkGray);
         this.textLabel.setForeground(Color.white);

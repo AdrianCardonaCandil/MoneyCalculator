@@ -1,7 +1,7 @@
 package software.ulpgc.view.swing;
+
 import software.ulpgc.controller.*;
 import software.ulpgc.model.FixedAPIExchangeRateLoader;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ public class SwingMainFrame extends JFrame {
 
     private final OperationalPanel operationalPanel = new OperationalPanel();
     private final DisplayPanel displayPanel = new DisplayPanel();
-    public static final Map<String, Command> commands = new HashMap<>();
+    private final Map<String, Command> commands = new HashMap<>();
 
     public static void main(String[] args) {
         SwingMainFrame mainFrame = new SwingMainFrame();
@@ -22,6 +22,11 @@ public class SwingMainFrame extends JFrame {
         this.initSetup();
         this.addAndSetupComponents();
         this.addCommands();
+        this.setListeners();
+    }
+
+    private void setListeners() {
+        this.displayPanel.getButton().addActionListener(e -> this.commands.get("exchange").execute());
     }
 
     private void addCommands() {

@@ -7,6 +7,6 @@ public record Money (Currency currency, double amount){
     @Override
     public String toString(){
         // Remember, this.currency will launch toString method.
-        return this.amount + ":" + this.currency;
+        return String.format("%.8f", amount) + ":" + this.currency;
     }
 }
