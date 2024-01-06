@@ -15,6 +15,10 @@ public class OperationalPanel extends JPanel {
         this.initSetup();
     }
 
+    public ControlPanel getControlPanel() {
+        return controlPanel;
+    }
+
     public void addAndSetupComponents() {
         this.setSize(this.getParent().getWidth(), this.getParent().getHeight() / 2);
         this.add(imagePanel);
@@ -67,7 +71,6 @@ class ControlPanel extends JPanel {
         this.moneyDialog.getTextLabel().setBounds(75, 55, 250, 20);
         this.moneyDialog.getCurrencyDialog().setBounds(25, 80, 220, 20);
         this.moneyDialog.getTextField().setBounds(245, 79, 75, 20);
-        //----------------------------------------------------------------------------------//
         this.label.setBounds(75, (this.getHeight() / 2) + 50, 250, 20);
         this.baseCurrencyDialog.setBounds(25, (this.getHeight() / 2) + 75, 300, 20);
     }
@@ -81,5 +84,13 @@ class ControlPanel extends JPanel {
         this.setLayout(null);
         this.setBackground(Color.darkGray);
         this.label.setForeground(Color.white);
+    }
+
+    public SwingCurrencyDialog getBaseCurrencyDialog() {
+        return baseCurrencyDialog;
+    }
+
+    public SwingMoneyDialog getMoneyDialog() {
+        return moneyDialog;
     }
 }

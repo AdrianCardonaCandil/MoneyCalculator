@@ -1,11 +1,17 @@
 package software.ulpgc.view.swing;
+import software.ulpgc.controller.*;
+import software.ulpgc.model.FixedAPIExchangeRateLoader;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SwingMainFrame extends JFrame {
 
     private final OperationalPanel operationalPanel = new OperationalPanel();
     private final DisplayPanel displayPanel = new DisplayPanel();
+    public static final Map<String, Command> commands = new HashMap<>();
 
     public static void main(String[] args) {
         SwingMainFrame mainFrame = new SwingMainFrame();
@@ -15,6 +21,13 @@ public class SwingMainFrame extends JFrame {
     public SwingMainFrame() throws HeadlessException {
         this.initSetup();
         this.addAndSetupComponents();
+        this.addCommands();
+    }
+
+    private void addCommands() {
+        this.commands.put("exchange", new ExchangeCommand(this.operationalPanel.getControlPanel().getMoneyDialog(),
+                this.operationalPanel.getControlPanel().getBaseCurrencyDialog(), new FixedAPIExchangeRateLoader(),
+                this.displayPanel.getDisplay()));
     }
 
     private void setupSubPanels() {

@@ -9,7 +9,7 @@ public class SwingMoneyDisplay extends JTextField implements MoneyDisplay {
 
     public SwingMoneyDisplay() {
         this.setHorizontalAlignment(CENTER);
-        this.setEnabled(true);
+        this.setEnabled(false);
         this.setFont(new Font(this.getFont().getName(), this.getFont().getStyle(), 30));
     }
 
