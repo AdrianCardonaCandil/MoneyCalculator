@@ -11,7 +11,7 @@ import java.util.Set;
 public class SwingMoneyDialog extends JPanel implements MoneyDialog {
 
     private final JTextField textField = new JTextField();
-    private final JLabel textLabel = new JLabel("Select now the target currency");
+    private final JLabel textLabel = new JLabel("Please, select the base currency");
     private final SwingCurrencyDialog currencyDialog;
 
     public SwingMoneyDialog(SwingCurrencyDialog dialog) {
